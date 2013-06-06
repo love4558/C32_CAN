@@ -1,0 +1,48 @@
+$INCLUDE_FILE
+
+
+(* GLOBALE TYPEN *)
+
+
+
+(* PROJEKT TYPEN *)
+
+
+
+(* GLOBALE PROTOTYPEN *)
+
+FUNCTION_BLOCK CAN_SDO_READ8
+    VAR_INPUT
+      DEVICE : USINT;
+      INDEX : WORD;
+      SUBINDEX : BYTE;
+      ENABLE : BOOL;
+      NETNUMBER : USINT;
+    END_VAR
+    VAR_OUTPUT
+      CONFIRM : BOOL;
+      ERROR : WORD;
+      ERRORINFO : DWORD;
+      DATA0 : BYTE;
+      DATA1 : BYTE;
+      DATA2 : BYTE;
+      DATA3 : BYTE;
+      DATA4 : BYTE;
+      DATA5 : BYTE;
+      DATA6 : BYTE;
+      DATA7 : BYTE;
+      DATALENGTH : USINT;
+    END_VAR
+  END_FUNCTION_BLOCK
+
+
+
+(* PROJEKT PROTOTYPEN *)
+
+
+
+(* EXTERNE POEs *)
+
+
+
+$END_INCLUDE_FILE

@@ -1,0 +1,20 @@
+FUNCTION_BLOCK WriteLocalODEntry 
+
+
+ VAR_INPUT
+  usiNetNumber_i : USINT ;
+  wIndex_i : WORD ;
+  bSubIndex_i : BYTE ;
+  dwData_i : DWORD ;
+  usiDataType_i : USINT ;
+  END_VAR 
+
+ VAR_OUTPUT
+  xSuccess_o : BOOL ;
+  wError_o : WORD ;
+  dwErrorInfo_o : DWORD ;
+  END_VAR 
+
+
+
+END_FUNCTION_BLOCK

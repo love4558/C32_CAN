@@ -1,0 +1,20 @@
+FUNCTION_BLOCK ReadLocalODEntry 
+
+
+ VAR_INPUT
+  usiNetNumber_i : USINT ;
+  wIndex_i : WORD ;
+  bSubIndex_i : BYTE ;
+  END_VAR 
+
+ VAR_OUTPUT
+  dwData_o : DWORD ;
+  usiDataType_o : USINT ;
+  xSuccess_o : BOOL ;
+  wError_o : WORD ;
+  dwErrorInfo_o : DWORD ;
+  END_VAR 
+
+
+
+END_FUNCTION_BLOCK

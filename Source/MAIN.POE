@@ -1,0 +1,92 @@
+PROGRAM Main
+VAR
+
+    bCAN1InByte0    AT %MB0.0   : BYTE;     (* mapped to Index=2000/Sub1 *)
+    bCAN1InByte1    AT %MB1.0   : BYTE;     (* not mapped                *)
+    bCAN1InWord0    AT %MW0.0   : WORD;     (* this overlapps 'bCAN1InByte0' and 'bCAN1InByte1' *)
+
+    bCAN1OutByte0   AT %MB256.0 : BYTE;     (* mapped to Index=2030/Sub1 *)
+    bCAN1OutByte1   AT %MB257.0 : BYTE;     (* mapped to Index=2030/Sub2 *)
+
+    wOldDataWord                : WORD;
+    udiDataCounter              : UDINT := 0;
+
+END_VAR
+
+(*Automatically declared*)
+VAR_EXTERNAL
+END_VAR
+(**  **)
+(** {*=========================================================================*} **)
+(** {*      PROGRAM Main   (used as Main Task)                                 *} **)
+(** {*=========================================================================*} **)
+(** {*                                                                         *} **)
+(** {* This is the main task of this demo project. It only makes some very     *} **)
+(** {* simple processing of a couple of network variables. This variables are  *} **)
+(** {* located in the static Object Dictionary and mapped to the marker area   *} **)
+(** {* of the process image                                                    *} **)
+(** {*                                                                         *} **)
+(** {* The important part of this demo project is the Startup Task             *} **)
+(** {* 'SetupCAN1.ST'. Here the configuration of the 1st RPDO and TPDO of the  *} **)
+(** {* static local Object Dictionary is done.                                 *} **)
+(** {*                                                                         *} **)
+(** {* NOTE: The PLC processes its network variables only in CANopen state     *} **)
+(** {*       'OPERATIONAL'. Therefore it's necessary that a Master is present  *} **)
+(** {*       in the network. If there is no other deticated master, configure  *} **)
+(** {*       the PLC to 'CANopenMaster = ON'.                                  *} **)
+(** {*                                                                         *} **)
+(** {*-------------------------------------------------------------------------*} **)
+(** {*      (c) SYSTEC electronic GmbH 2009     -rs                            *} **)
+(** {*=========================================================================*} **)
+(**  **)
+(** IF (wOldDataWord <> bCAN1InWord0) THEN **)
+	(* if - Cond *)
+	LD wOldDataWord
+	NE bCAN1InWord0
+	JMPCN ODK_SKIP_000000000000001_000000000000001
+
+		(* then - Stmts *)
+
+(**  **)
+(**     wOldDataWord := bCAN1InWord0; **)
+		(* assign - Stmt *)
+		LD bCAN1InWord0
+		ST wOldDataWord
+
+(**  **)
+(**     udiDataCounter := udiDataCounter + 1; **)
+		(* assign - Stmt *)
+		LD udiDataCounter
+		ADD 1
+		ST udiDataCounter
+
+(**  **)
+(**     bCAN1OutByte0 := bCAN1InByte0; **)
+		(* assign - Stmt *)
+		LD bCAN1InByte0
+		ST bCAN1OutByte0
+
+(**     bCAN1OutByte1 := UDINT_TO_BYTE (udiDataCounter); **)
+		(* assign - Stmt *)
+		LD udiDataCounter
+		UDINT_TO_BYTE 
+		ST bCAN1OutByte1
+
+		JMP ODK_END_IF_000000000000001
+
+(**  **)
+(** END_IF; **)
+	(* if - End *) 
+	ODK_SKIP_000000000000001_000000000000001:
+	ODK_END_IF_000000000000001:
+
+(**  **)
+(** RETURN; **)
+	(* return - Stmt *)
+	RET 
+
+(**  **)
+(**  **)
+(**  **)
+(**  **)
+END_PROGRAM

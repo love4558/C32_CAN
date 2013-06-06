@@ -1,0 +1,18 @@
+2/10	Datasegment	2/11	36	MAIN
+2/11	Codesegment	2/12	54
+2/12	Initialsegment	2/11	24
+1/10	Datasegment	1/11	28	SETUPCAN1
+1/11	Codesegment	1/12	591
+1/12	Initialsegment	1/11	28
+1/13	Datasegment	1/14	36	SETUPCAN1.FB_READLOCALODENTRY
+1/14	Codesegment	1/15	167
+1/15	Initialsegment	1/14	40
+1/16	Datasegment	1/17	40	SETUPCAN1.FB_READLOCALODENTRY.FB_CANSDOREAD8
+1/17	Codesegment	1/18	7
+1/18	Initialsegment	1/17	48
+1/19	Datasegment	1/20	40	SETUPCAN1.FB_WRITELOCALODENTRY
+1/20	Codesegment	1/21	149
+1/21	Initialsegment	1/20	44
+1/22	Datasegment	1/23	36	SETUPCAN1.FB_WRITELOCALODENTRY.FB_CANSDOWRITE8
+1/23	Codesegment	1/24	7
+1/24	Initialsegment	1/23	44

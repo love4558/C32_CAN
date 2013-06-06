@@ -1,0 +1,23 @@
+[MAKEFILE]
+FILE0=\$ENV$\ConfigCAN1\ConfigCAN1
+ACTIVE=\$ENV$\ConfigCAN1\ConfigCAN1.MAK
+COUNT=1
+[LIBRARY]
+FILE0=\LIB\sfclib\sfclib.VAR
+COUNT=1
+[PRINTOPTIONS]
+PRINTTEMPLATE=C:\ProgramData\infoteam Software\OpenPCS2008\Openpcs.520\Form1_e.wmf
+[ST_PROGRAM]
+FILE0=\Source\Main
+FILE1=\Source\SetupCAN1
+COUNT=2
+[TYPEDEF]
+FILE0=\UserType
+COUNT=1
+[ST_FUNCTIONBLOCK]
+FILE0=\Source\ReadLocalODEntry
+FILE1=\Source\WriteLocalODEntry
+COUNT=2
+[DATPARAM_INFO]
+SeperateGen=1
+Version=4.0
