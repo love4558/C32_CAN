@@ -11,6 +11,9 @@ VAR
     bCAN1InByte7    AT %MB7.0   : BYTE;     (* not mapped                *)
 
     bCAN1InWord0    AT %MW0.0   : WORD;     (* this overlapps 'bCAN1InByte0' and 'bCAN1InByte1' *)
+    bCAN1InWord2    AT %MW2.0   : WORD;     (* this overlapps 'bCAN1InByte0' and 'bCAN1InByte1' *)
+    bCAN1InWord4    AT %MW4.0   : WORD;     (* this overlapps 'bCAN1InByte0' and 'bCAN1InByte1' *)
+    bCAN1InWord6    AT %MW6.0   : WORD;     (* this overlapps 'bCAN1InByte0' and 'bCAN1InByte1' *)
 
     bCAN1OutByte0   AT %MB256.0 : BYTE;     (* mapped to Index=2030/Sub1 *)
     bCAN1OutByte1   AT %MB257.0 : BYTE;     (* mapped to Index=2030/Sub2 *)
@@ -21,7 +24,12 @@ VAR
     bCAN1OutByte6   AT %MB262.0 : BYTE;     (* mapped to Index=2030/Sub1 *)
     bCAN1OutByte7   AT %MB263.0 : BYTE;     (* mapped to Index=2030/Sub2 *)
 
-    wOldDataWord                : WORD;
+    wOldDataWord0                : WORD;
+    wOldDataWord2                : WORD;
+    wOldDataWord4                : WORD;
+    wOldDataWord6                : WORD;
+
+
     udiDataCounter              : UDINT := 0;
 
 END_VAR
@@ -48,16 +56,26 @@ END_VAR
 (*      (c) SYSTEC electronic GmbH 2009     -rs                            *)
 (*=========================================================================*)
 
-IF (wOldDataWord <> bCAN1InWord0) THEN
+IF ((wOldDataWord0 <> bCAN1InWord0) or (wOldDataWord2 <> bCAN1InWord2) 
+	or (wOldDataWord4 <> bCAN1InWord4) or (wOldDataWord6 <> bCAN1InWord6)) THEN
 
-    wOldDataWord := bCAN1InWord0;
+    wOldDataWord0 := bCAN1InWord0;
+    wOldDataWord2 := bCAN1InWord2;
+    wOldDataWord4 := bCAN1InWord4;
+    wOldDataWord6 := bCAN1InWord6;
 
     udiDataCounter := udiDataCounter + 1;
 
     bCAN1OutByte0 := bCAN1InByte0;
     bCAN1OutByte1 := bCAN1InByte1;
+    bCAN1OutByte2 := bCAN1InByte2;
+    bCAN1OutByte3 := bCAN1InByte3;
+    bCAN1OutByte4 := bCAN1InByte4;
+    bCAN1OutByte5 := bCAN1InByte5;
+    bCAN1OutByte6 := bCAN1InByte6;
+    bCAN1OutByte7 := bCAN1InByte7;
 	
-    bCAN1OutByte2 := UDINT_TO_BYTE (udiDataCounter);
+    bCAN1OutByte7 := UDINT_TO_BYTE (udiDataCounter);
 
 END_IF;
 
