@@ -1,5 +1,5 @@
-2/10	Datasegment	2/11	156	MAIN
-2/11	Codesegment	2/12	171
+2/10	Datasegment	2/11	160	MAIN
+2/11	Codesegment	2/12	176
 2/12	Initialsegment	2/11	28
 1/10	Datasegment	1/11	28	SETUPCAN1
 1/11	Codesegment	1/12	1150

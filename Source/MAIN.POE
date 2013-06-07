@@ -2,22 +2,23 @@ PROGRAM Main
 VAR
 (***************************************************************************************************)
 (************************* ShPImg variable define **************************************************)
-	Modbus_connect			AT %MB515.0 :BYTE;
 	Functions_ShPImg 		AT %MB514.0 :BYTE;
+	Modbus_connect			AT %MB515.0 :BYTE;
 	ModbusAddr_ShPImg 		AT %MB516.0 :BYTE;
-
-	TxNum					AT %MB518.0 :BYTE;
+    Quantity_ShPImg			AT %MB517.0 :BYTE;
 	
-	Modbus_data0_Read		AT %MB534.0 :BYTE;	
-	Modbus_data1_Read		AT %MB535.0 :BYTE;	
-	Modbus_data2_Read		AT %MB536.0 :BYTE;	
-	Modbus_data3_Read		AT %MB537.0 :BYTE;	
-	Modbus_data4_Read		AT %MB538.0 :BYTE;	
-	Modbus_data5_Read		AT %MB539.0 :BYTE;	
-	Modbus_data6_Read		AT %MB540.0 :BYTE;	
-	Modbus_data7_Read		AT %MB541.0 :BYTE;	
-	Modbus_data8_Read		AT %MB542.0 :BYTE;	
-	Modbus_data9_Read		AT %MB543.0 :BYTE;	
+	TxNum					AT %MB518.0 :BYTE;
+
+	Modbus_data0_Read		AT %MB524.0 :BYTE;	
+	Modbus_data1_Read		AT %MB525.0 :BYTE;	
+	Modbus_data2_Read		AT %MB526.0 :BYTE;	
+	Modbus_data3_Read		AT %MB527.0 :BYTE;	
+	Modbus_data4_Read		AT %MB528.0 :BYTE;	
+	Modbus_data5_Read		AT %MB529.0 :BYTE;	
+	Modbus_data6_Read		AT %MB530.0 :BYTE;	
+	Modbus_data7_Read		AT %MB531.0 :BYTE;	
+	Modbus_data8_Read		AT %MB532.0 :BYTE;	
+	Modbus_data9_Read		AT %MB533.0 :BYTE;	
 
 (***************************************************************************************************)
 (************************* CAN variable define *****************************************************)
@@ -88,14 +89,14 @@ END_VAR
 
 		(* then - Stmts *)
 
-(** 	Functions_ShPImg := 1; {*set modbus function code*} **)
+(** 	Functions_ShPImg := 5; {*set modbus function code*} **)
 		(* assign - Stmt *)
-		LD 1
+		LD 5
 		ST Functions_ShPImg
 
-(** 	ModbusAddr_ShPImg := 0; {*set modbus number of frame*} **)
+(** 	ModbusAddr_ShPImg := 1; {*set modbus number of frame*} **)
 		(* assign - Stmt *)
-		LD 0
+		LD 1
 		ST ModbusAddr_ShPImg
 
 (** 	Modbus_connect := 1; **)
@@ -103,10 +104,13 @@ END_VAR
 		LD 1
 		ST Modbus_connect
 
+(** 	Quantity_ShPImg := 8; **)
+		(* assign - Stmt *)
+		LD 8
+		ST Quantity_ShPImg
+
 		JMP ODK_END_IF_000000000000001
 
-(**  **)
-(**  **)
 (** END_IF; **)
 	(* if - End *) 
 	ODK_SKIP_000000000000001_000000000000001:
