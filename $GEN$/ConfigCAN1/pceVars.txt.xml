@@ -64,6 +64,20 @@
 		<var name="CONFIRM" path="SETUPCAN1.FB_WRITELOCALODENTRY.FB_CANSDOWRITE8" type="1" size="1" program="1" segment="22" offset="8" bit="0" scope="2" qualifier="0" ref="0" procimg="noPI" />
 		<var name="ERROR" path="SETUPCAN1.FB_WRITELOCALODENTRY.FB_CANSDOWRITE8" type="3" size="2" program="1" segment="22" offset="10" bit="0" scope="2" qualifier="0" ref="0" procimg="noPI" />
 		<var name="ERRORINFO" path="SETUPCAN1.FB_WRITELOCALODENTRY.FB_CANSDOWRITE8" type="4" size="4" program="1" segment="22" offset="12" bit="0" scope="2" qualifier="0" ref="0" procimg="noPI" />
+		<var name="MODBUS_CONNECT" path="MAIN" type="2" size="1" program="2" segment="1" offset="4619" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB515.0" />
+		<var name="FUNCTIONS_SHPIMG" path="MAIN" type="2" size="1" program="2" segment="1" offset="4618" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB514.0" />
+		<var name="MODBUSADDR_SHPIMG" path="MAIN" type="2" size="1" program="2" segment="1" offset="4620" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB516.0" />
+		<var name="TXNUM" path="MAIN" type="2" size="1" program="2" segment="1" offset="4622" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB518.0" />
+		<var name="MODBUS_DATA0_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4638" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB534.0" />
+		<var name="MODBUS_DATA1_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4639" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB535.0" />
+		<var name="MODBUS_DATA2_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4640" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB536.0" />
+		<var name="MODBUS_DATA3_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4641" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB537.0" />
+		<var name="MODBUS_DATA4_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4642" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB538.0" />
+		<var name="MODBUS_DATA5_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4643" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB539.0" />
+		<var name="MODBUS_DATA6_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4644" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB540.0" />
+		<var name="MODBUS_DATA7_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4645" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB541.0" />
+		<var name="MODBUS_DATA8_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4646" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB542.0" />
+		<var name="MODBUS_DATA9_READ" path="MAIN" type="2" size="1" program="2" segment="1" offset="4647" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB543.0" />
 		<var name="BCAN1INBYTE0" path="MAIN" type="2" size="1" program="2" segment="1" offset="4104" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB0.0" />
 		<var name="BCAN1INBYTE1" path="MAIN" type="2" size="1" program="2" segment="1" offset="4105" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB1.0" />
 		<var name="BCAN1INBYTE2" path="MAIN" type="2" size="1" program="2" segment="1" offset="4106" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB2.0" />
@@ -84,10 +98,10 @@
 		<var name="BCAN1OUTBYTE5" path="MAIN" type="2" size="1" program="2" segment="1" offset="4365" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB261.0" />
 		<var name="BCAN1OUTBYTE6" path="MAIN" type="2" size="1" program="2" segment="1" offset="4366" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB262.0" />
 		<var name="BCAN1OUTBYTE7" path="MAIN" type="2" size="1" program="2" segment="1" offset="4367" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB263.0" />
-		<var name="WOLDDATAWORD0" path="MAIN" type="3" size="2" program="2" segment="10" offset="88" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
-		<var name="WOLDDATAWORD2" path="MAIN" type="3" size="2" program="2" segment="10" offset="90" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
-		<var name="WOLDDATAWORD4" path="MAIN" type="3" size="2" program="2" segment="10" offset="92" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
-		<var name="WOLDDATAWORD6" path="MAIN" type="3" size="2" program="2" segment="10" offset="94" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
-		<var name="UDIDATACOUNTER" path="MAIN" type="7" size="4" program="2" segment="10" offset="96" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
+		<var name="WOLDDATAWORD0" path="MAIN" type="3" size="2" program="2" segment="10" offset="144" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
+		<var name="WOLDDATAWORD2" path="MAIN" type="3" size="2" program="2" segment="10" offset="146" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
+		<var name="WOLDDATAWORD4" path="MAIN" type="3" size="2" program="2" segment="10" offset="148" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
+		<var name="WOLDDATAWORD6" path="MAIN" type="3" size="2" program="2" segment="10" offset="150" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
+		<var name="UDIDATACOUNTER" path="MAIN" type="7" size="4" program="2" segment="10" offset="152" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
 	</VarList>
 </Project>

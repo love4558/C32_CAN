@@ -3,7 +3,6 @@ Building resource G:\customer\article\c32\C32_CAN\$ENV$\ConfigCAN1\ConfigCAN1.MA
 Executing Pre-Build-Steps:
 Delete G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\$TASK00$.CRD
 Delete G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\BuildLog.txt
-Delete G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\CONFIGCAN1.bpd
 Delete G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\ConfigCAN1.PCD
 Delete G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\Main.CRD
 Delete G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\Main.INC
@@ -72,12 +71,12 @@ Linking resource: CONFIGCAN1 ...
 Linking: G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\$TASK00$.CRD.
 Linking: G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\SetupCAN1.CRD.
 Linking: G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\Main.CRD.
-Code size in bytes: 16475.
+Code size in bytes: 16567.
 Number of segments: 40.
 0 error(s), 0 warning(s) - G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\ConfigCAN1.PCD.
 
 VARTAB32: Version VarTab: 1
-VARTAB32: 87 variables added in 1 segments (3258 bytes)
+VARTAB32: 101 variables added in 1 segments (3830 bytes)
 Executing Post-Build-Steps:
 Total:
 0 error(s) 0 warning(s)

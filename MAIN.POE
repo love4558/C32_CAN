@@ -1,0 +1,281 @@
+PROGRAM MAIN
+VAR_EXTERNAL
+
+END_VAR
+
+VAR_GLOBAL
+
+END_VAR
+
+VAR
+	(*receive modbus data for display*)	
+	ModbusData0				: BYTE;
+	ModbusData1				: BYTE;
+	ModbusData2				: BYTE;
+	ModbusData3				: BYTE;	
+	ModbusData4				: BYTE;
+	ModbusData5				: BYTE;
+	ModbusData6				: BYTE;
+	ModbusData7				: BYTE;	
+	ModbusData8				: BYTE;	
+	
+	(*the val for configuration*)
+	ConnectStat				: STRING := 'DISCONNECT';	(*the status of connect,Connect or Un-connect*)
+	Functions				: BYTE;						(*select the function of the modbus*)
+	ModbusAddress			: BYTE;						(*set the modbus address*)
+	Quantity				: BYTE	:=1;				(*set the number of the modbus frame*)
+	ScanRate				: INT;						(*set the scan rate, maybe used*)
+	Modbus_connect_conf		: UINT;						(*return the connect status from shpimg*)
+	Reset					: BYTE := 0;
+
+	Functions_ShPImg		AT %MB514.0 :BYTE;			(*select the function of the modbus*)
+	Modbus_connect			AT %MB515.0	:BYTE;			(*set the modbus address*)
+	ModbusAddr_ShPImg		AT %MB516.0 :BYTE;			(*set the number of the modbus frame*)
+	Quantity_ShPImg			AT %MB517.0 :BYTE;			(*set the scan rate*)
+
+	TxNum							AT %MW518.0 :UINT;	(*the number of tanslate frame*)
+	Err_ShPImg						AT %MW520.0 :INT;	(*the number of error*)
+	Modbus_connect_conf_ShPImg	    AT %MW522.0 :UINT;			(*return the connect status from shpimg*)	
+
+	Modbus_data0_ShPImg		    	AT %MB524.0 :BYTE;
+	Modbus_data1_ShPImg				AT %MB525.0 :BYTE;
+	Modbus_data2_ShPImg				AT %MB526.0 :BYTE;
+	Modbus_data3_ShPImg				AT %MB527.0 :BYTE;
+	Modbus_data4_ShPImg				AT %MB528.0 :BYTE;
+	Modbus_data5_ShPImg				AT %MB529.0 :BYTE;
+	Modbus_data6_ShPImg				AT %MB530.0 :BYTE;
+	Modbus_data7_ShPImg				AT %MB531.0 :BYTE;
+	Modbus_data8_ShPImg				AT %MB532.0 :BYTE;
+	Modbus_data9_ShPImg				AT %MB533.0 :BYTE;
+
+	Modbus_data0_Read				AT %MB534.0 :BYTE;
+	Modbus_data1_Read				AT %MB535.0 :BYTE;
+	Modbus_data2_Read				AT %MB536.0 :BYTE;
+	Modbus_data3_Read				AT %MB537.0 :BYTE;
+	Modbus_data4_Read				AT %MB538.0 :BYTE;
+	Modbus_data5_Read				AT %MB539.0 :BYTE;
+	Modbus_data6_Read				AT %MB540.0 :BYTE;
+	Modbus_data7_Read				AT %MB541.0 :BYTE;
+	Modbus_data8_Read				AT %MB542.0 :BYTE;
+	Modbus_data9_Read				AT %MB543.0 :BYTE;
+	(*Function block define*)
+
+	Impluse_FB				: IMPULSE;
+	GetMoveTime_FB			: GETMOVETIME;
+    tmCycleTime    		    : TIME;	
+	CycleTime				: int := 0;
+	
+	END_VAR
+
+(*Automatically declared*)
+VAR_EXTERNAL
+END_VAR
+(**  **)
+(** {*=======================================================*} **)
+(** {*              PROGRAM MODBUS                           *} **)
+(** {*       (with visualization support)                    *} **)
+(** {*                                                       *} **)
+(** {* This program creates									 *} **)
+(** {*				  The following user element assigment   *} **)
+(** {* is used:                                              *} **)
+(** {*                                                       *} **)
+(** {*                                                       *} **)
+(** {* (c) SYSTEC electronic GmbH 2012                       *} **)
+(** {*=======================================================*} **)
+(** 	IF(ConnectStat = 'CONNECT')	THEN **)
+	(* if - Cond *)
+	LD ConnectStat
+	EQ 'CONNECT'
+	JMPCN ODK_SKIP_000000000000001_000000000000001
+
+		(* then - Stmts *)
+
+(** 		IF(Modbus_connect_conf = 1 AND Modbus_connect_conf_ShPImg = 0) THEN **)
+		(* if - Cond *)
+		LD Modbus_connect_conf
+		EQ 1
+		AND ( Modbus_connect_conf_ShPImg
+			EQ 0
+		)
+		JMPCN ODK_SKIP_000000000000002_000000000000001
+
+			(* then - Stmts *)
+
+(** 			ConnectStat := 'DISCONNECT'; **)
+			(* assign - Stmt *)
+			LD 'DISCONNECT'
+			ST ConnectStat
+
+			JMP ODK_END_IF_000000000000002
+
+(** 		END_IF; **)
+		(* if - End *) 
+		ODK_SKIP_000000000000002_000000000000001:
+		ODK_END_IF_000000000000002:
+
+(**     	Modbus_connect := 1; **)
+		(* assign - Stmt *)
+		LD 1
+		ST Modbus_connect
+
+(** 		Modbus_connect_conf := Modbus_connect_conf_ShPImg; **)
+		(* assign - Stmt *)
+		LD Modbus_connect_conf_ShPImg
+		ST Modbus_connect_conf
+
+		JMP ODK_END_IF_000000000000001
+
+(** 	ELSE **)
+	(* else *) 
+	ODK_SKIP_000000000000001_000000000000001:
+
+		(* else - Stmts *)
+
+(** 		Modbus_connect := 0; **)
+		(* assign - Stmt *)
+		LD 0
+		ST Modbus_connect
+
+(** 		Modbus_connect_conf_ShPImg := 0; **)
+		(* assign - Stmt *)
+		LD 0
+		ST Modbus_connect_conf_ShPImg
+
+(** 		Modbus_connect_conf := Modbus_connect_conf_ShPImg; **)
+		(* assign - Stmt *)
+		LD Modbus_connect_conf_ShPImg
+		ST Modbus_connect_conf
+
+(** 	END_IF; **)
+	(* if - End *) 
+	ODK_END_IF_000000000000001:
+
+(**  **)
+(** 	IF(Reset = 1) THEN **)
+	(* if - Cond *)
+	LD Reset
+	EQ 1
+	JMPCN ODK_SKIP_000000000000003_000000000000001
+
+		(* then - Stmts *)
+
+(** 		Quantity :=  1; **)
+		(* assign - Stmt *)
+		LD 1
+		ST Quantity
+
+(** 		ModbusAddress := 0;	 **)
+		(* assign - Stmt *)
+		LD 0
+		ST ModbusAddress
+
+(** 		TxNum := 0; **)
+		(* assign - Stmt *)
+		LD 0
+		ST TxNum
+
+(** 		Reset := 0; **)
+		(* assign - Stmt *)
+		LD 0
+		ST Reset
+
+(** 		ScanRate := 0; **)
+		(* assign - Stmt *)
+		LD 0
+		ST ScanRate
+
+(** 		Err_ShPImg := 0; **)
+		(* assign - Stmt *)
+		LD 0
+		ST Err_ShPImg
+
+		JMP ODK_END_IF_000000000000003
+
+(** 	END_IF; **)
+	(* if - End *) 
+	ODK_SKIP_000000000000003_000000000000001:
+	ODK_END_IF_000000000000003:
+
+(** 		 **)
+(** 	IF (Modbus_connect_conf = 1) THEN		 **)
+	(* if - Cond *)
+	LD Modbus_connect_conf
+	EQ 1
+	JMPCN ODK_SKIP_000000000000004_000000000000001
+
+		(* then - Stmts *)
+
+(**  **)
+(** 		ModbusAddr_ShPImg := ModbusAddress; **)
+		(* assign - Stmt *)
+		LD ModbusAddress
+		ST ModbusAddr_ShPImg
+
+(** 		Functions_ShPImg := Functions; **)
+		(* assign - Stmt *)
+		LD Functions
+		ST Functions_ShPImg
+
+(** 		Quantity_ShPImg := Quantity; **)
+		(* assign - Stmt *)
+		LD Quantity
+		ST Quantity_ShPImg
+
+(** 		{*Err := Err_ShPImg;*}	 **)
+(** 		GetMoveTime_FB ( **)
+		(* call - Stmt *)
+		CAL GetMoveTime_FB (
+(** 	    	iSpeedValue_i := ScanRate **)
+			iSpeedValue_i := ScanRate
+			|
+(** 	    	| **)
+(** 	    	tmCycleTime := tmMoveTime_o); **)
+			tmCycleTime := tmMoveTime_o
+		)
+
+(** 		{*out put the cycle enable*} **)
+(** 		Impluse_FB (tmPulseTime_i := tmCycleTime);		 **)
+		(* call - Stmt *)
+		CAL Impluse_FB (
+			tmPulseTime_i := tmCycleTime
+		)
+
+(**  **)
+(** 		IF (Impluse_FB.Q = TRUE) THEN **)
+		(* if - Cond *)
+		LD Impluse_FB.Q
+		EQ TRUE
+		JMPCN ODK_SKIP_000000000000005_000000000000001
+
+			(* then - Stmts *)
+
+(** 			TxNum := TxNum+1; **)
+			(* assign - Stmt *)
+			LD TxNum
+			ADD 1
+			ST TxNum
+
+			JMP ODK_END_IF_000000000000005
+
+(** 		END_IF;					 **)
+		(* if - End *) 
+		ODK_SKIP_000000000000005_000000000000001:
+		ODK_END_IF_000000000000005:
+
+		JMP ODK_END_IF_000000000000004
+
+(** 	END_IF; **)
+	(* if - End *) 
+	ODK_SKIP_000000000000004_000000000000001:
+	ODK_END_IF_000000000000004:
+
+(** RETURN; **)
+	(* return - Stmt *)
+	RET 
+
+(**  **)
+(**  **)
+(**  **)
+(**  **)
+(**  **)
+END_PROGRAM
