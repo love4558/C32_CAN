@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="G:\CUSTOMER\ARTICLE\C32\DEMO\C32_CONFIGCAN1\$GEN$\ConfigCAN1\ConfigCAN1.PCD">
+<Project name="G:\CUSTOMER\ARTICLE\C32\C32_CAN\$GEN$\ConfigCAN1\ConfigCAN1.PCD">
 	<XMLVarListGenerator version="6.2.0"/>
 	<VarList>
 		<var name="NETNUMBER" path="SETUPCAN1" type="5" size="1" program="1" segment="10" offset="16" bit="0" scope="4" qualifier="1" ref="0" procimg="noPI" />
@@ -66,10 +66,22 @@
 		<var name="ERRORINFO" path="SETUPCAN1.FB_WRITELOCALODENTRY.FB_CANSDOWRITE8" type="4" size="4" program="1" segment="22" offset="12" bit="0" scope="2" qualifier="0" ref="0" procimg="noPI" />
 		<var name="BCAN1INBYTE0" path="MAIN" type="2" size="1" program="2" segment="1" offset="4104" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB0.0" />
 		<var name="BCAN1INBYTE1" path="MAIN" type="2" size="1" program="2" segment="1" offset="4105" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB1.0" />
+		<var name="BCAN1INBYTE2" path="MAIN" type="2" size="1" program="2" segment="1" offset="4106" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB2.0" />
+		<var name="BCAN1INBYTE3" path="MAIN" type="2" size="1" program="2" segment="1" offset="4107" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB3.0" />
+		<var name="BCAN1INBYTE4" path="MAIN" type="2" size="1" program="2" segment="1" offset="4108" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB4.0" />
+		<var name="BCAN1INBYTE5" path="MAIN" type="2" size="1" program="2" segment="1" offset="4109" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB5.0" />
+		<var name="BCAN1INBYTE6" path="MAIN" type="2" size="1" program="2" segment="1" offset="4110" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB6.0" />
+		<var name="BCAN1INBYTE7" path="MAIN" type="2" size="1" program="2" segment="1" offset="4111" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB7.0" />
 		<var name="BCAN1INWORD0" path="MAIN" type="3" size="2" program="2" segment="1" offset="4104" bit="0" scope="1" qualifier="0" ref="0" procimg="%MW0.0" />
 		<var name="BCAN1OUTBYTE0" path="MAIN" type="2" size="1" program="2" segment="1" offset="4360" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB256.0" />
 		<var name="BCAN1OUTBYTE1" path="MAIN" type="2" size="1" program="2" segment="1" offset="4361" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB257.0" />
-		<var name="WOLDDATAWORD" path="MAIN" type="3" size="2" program="2" segment="10" offset="28" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
-		<var name="UDIDATACOUNTER" path="MAIN" type="7" size="4" program="2" segment="10" offset="32" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
+		<var name="BCAN1OUTBYTE2" path="MAIN" type="2" size="1" program="2" segment="1" offset="4362" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB258.0" />
+		<var name="BCAN1OUTBYTE3" path="MAIN" type="2" size="1" program="2" segment="1" offset="4363" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB259.0" />
+		<var name="BCAN1OUTBYTE4" path="MAIN" type="2" size="1" program="2" segment="1" offset="4364" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB260.0" />
+		<var name="BCAN1OUTBYTE5" path="MAIN" type="2" size="1" program="2" segment="1" offset="4365" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB261.0" />
+		<var name="BCAN1OUTBYTE6" path="MAIN" type="2" size="1" program="2" segment="1" offset="4366" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB262.0" />
+		<var name="BCAN1OUTBYTE7" path="MAIN" type="2" size="1" program="2" segment="1" offset="4367" bit="0" scope="1" qualifier="0" ref="0" procimg="%MB263.0" />
+		<var name="WOLDDATAWORD" path="MAIN" type="3" size="2" program="2" segment="10" offset="76" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
+		<var name="UDIDATACOUNTER" path="MAIN" type="7" size="4" program="2" segment="10" offset="80" bit="0" scope="4" qualifier="0" ref="0" procimg="noPI" />
 	</VarList>
 </Project>

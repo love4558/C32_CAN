@@ -1,8 +1,8 @@
-2/10	Datasegment	2/11	36	MAIN
-2/11	Codesegment	2/12	54
+2/10	Datasegment	2/11	84	MAIN
+2/11	Codesegment	2/12	96
 2/12	Initialsegment	2/11	24
 1/10	Datasegment	1/11	28	SETUPCAN1
-1/11	Codesegment	1/12	591
+1/11	Codesegment	1/12	1150
 1/12	Initialsegment	1/11	28
 1/13	Datasegment	1/14	36	SETUPCAN1.FB_READLOCALODENTRY
 1/14	Codesegment	1/15	167

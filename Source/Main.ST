@@ -3,10 +3,23 @@ VAR
 
     bCAN1InByte0    AT %MB0.0   : BYTE;     (* mapped to Index=2000/Sub1 *)
     bCAN1InByte1    AT %MB1.0   : BYTE;     (* not mapped                *)
+    bCAN1InByte2    AT %MB2.0   : BYTE;     (* not mapped                *)
+    bCAN1InByte3    AT %MB3.0   : BYTE;     (* mapped to Index=2000/Sub1 *)
+    bCAN1InByte4    AT %MB4.0   : BYTE;     (* not mapped                *)
+    bCAN1InByte5    AT %MB5.0   : BYTE;     (* not mapped                *)
+    bCAN1InByte6    AT %MB6.0   : BYTE;     (* mapped to Index=2000/Sub1 *)
+    bCAN1InByte7    AT %MB7.0   : BYTE;     (* not mapped                *)
+
     bCAN1InWord0    AT %MW0.0   : WORD;     (* this overlapps 'bCAN1InByte0' and 'bCAN1InByte1' *)
 
     bCAN1OutByte0   AT %MB256.0 : BYTE;     (* mapped to Index=2030/Sub1 *)
     bCAN1OutByte1   AT %MB257.0 : BYTE;     (* mapped to Index=2030/Sub2 *)
+    bCAN1OutByte2   AT %MB258.0 : BYTE;     (* mapped to Index=2030/Sub2 *)
+    bCAN1OutByte3   AT %MB259.0 : BYTE;     (* mapped to Index=2030/Sub1 *)
+    bCAN1OutByte4   AT %MB260.0 : BYTE;     (* mapped to Index=2030/Sub2 *)
+    bCAN1OutByte5   AT %MB261.0 : BYTE;     (* mapped to Index=2030/Sub2 *)
+    bCAN1OutByte6   AT %MB262.0 : BYTE;     (* mapped to Index=2030/Sub1 *)
+    bCAN1OutByte7   AT %MB263.0 : BYTE;     (* mapped to Index=2030/Sub2 *)
 
     wOldDataWord                : WORD;
     udiDataCounter              : UDINT := 0;
@@ -42,7 +55,15 @@ IF (wOldDataWord <> bCAN1InWord0) THEN
     udiDataCounter := udiDataCounter + 1;
 
     bCAN1OutByte0 := bCAN1InByte0;
-    bCAN1OutByte1 := UDINT_TO_BYTE (udiDataCounter);
+    bCAN1OutByte1 := bCAN1InByte1;
+    bCAN1OutByte2 := bCAN1InByte2;
+    bCAN1OutByte3 := bCAN1InByte3;
+    bCAN1OutByte4 := bCAN1InByte4;
+    bCAN1OutByte5 := bCAN1InByte5;
+    bCAN1OutByte6 := bCAN1InByte6;
+    bCAN1OutByte7 := bCAN1InByte7;
+	
+    bCAN1OutByte7 := UDINT_TO_BYTE (udiDataCounter);
 
 END_IF;
 

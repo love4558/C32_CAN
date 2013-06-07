@@ -106,7 +106,7 @@ FB_WriteLocalODEntry (
     wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
     bSubIndex_i    := 0,            (* SubIndex 0:  number of mapped objects      *)
     dwData_i       := 0,            (* set number of used mapping entries to 0    *)
-    usiDataType_i  := 1);           (* Sub0 = BYTE = 1Byte                        *)
+    usiDataType_i  := 4);           (* Sub0 = BYTE = 1Byte                        *)
 
 
 
@@ -121,6 +121,54 @@ FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte0'            
     dwData_i       := 16#20000108,  (* Mapping:     Index=2000, Sub=01, Len=08    *)
     usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
 
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte1'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 2,            (* SubIndex 2:  2st mapped object             *)
+    dwData_i       := 16#20000208,  (* Mapping:     Index=2000, Sub=02, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte0'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 3,            (* SubIndex 1:  1st mapped object             *)
+    dwData_i       := 16#20000308,  (* Mapping:     Index=2000, Sub=01, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte1'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 4,            (* SubIndex 2:  2st mapped object             *)
+    dwData_i       := 16#20000408,  (* Mapping:     Index=2000, Sub=02, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte0'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 5,            (* SubIndex 1:  1st mapped object             *)
+    dwData_i       := 16#20000508,  (* Mapping:     Index=2000, Sub=01, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte1'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 6,            (* SubIndex 2:  2st mapped object             *)
+    dwData_i       := 16#20000608,  (* Mapping:     Index=2000, Sub=02, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte0'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 7,            (* SubIndex 1:  1st mapped object             *)
+    dwData_i       := 16#20000708,  (* Mapping:     Index=2000, Sub=01, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte1'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 8,            (* SubIndex 2:  2st mapped object             *)
+    dwData_i       := 16#20000808,  (* Mapping:     Index=2000, Sub=02, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
 
 
 (*-------------------------------------------------------------------------*)
@@ -131,7 +179,7 @@ FB_WriteLocalODEntry (
     usiNetNumber_i := NETNUMBER,
     wIndex_i       := 16#1600,      (* Index 1600:  RPDO1 mapping parameter       *)
     bSubIndex_i    := 0,            (* SubIndex 0:  number of mapped objects      *)
-    dwData_i       := 1,            (* 1 data object (Sub1) is valid              *)
+    dwData_i       := 8,            (* 1 data object (Sub1) is valid              *)
     usiDataType_i  := 1);           (* Sub0 = BYTE = 1Byte                        *)
 
 
@@ -212,7 +260,47 @@ FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte1'            
     dwData_i       := 16#20300208,  (* Mapping:     Index=2030, Sub=02, Len=08    *)
     usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
 
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1OutByte2'             *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1A00,      (* Index 1A00:  TPDO1 mapping parameter       *)
+    bSubIndex_i    := 3,            (* SubIndex 1:  1st mapped object             *)
+    dwData_i       := 16#20300308,  (* Mapping:     Index=2030, Sub=01, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
 
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1OutByte0'             *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1A00,      (* Index 1A00:  TPDO1 mapping parameter       *)
+    bSubIndex_i    := 4,            (* SubIndex 1:  1st mapped object             *)
+    dwData_i       := 16#20300408,  (* Mapping:     Index=2030, Sub=01, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte1'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1A00,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 5,            (* SubIndex 2:  2nd mapped object             *)
+    dwData_i       := 16#20300508,  (* Mapping:     Index=2030, Sub=02, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1OutByte2'             *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1A00,      (* Index 1A00:  TPDO1 mapping parameter       *)
+    bSubIndex_i    := 6,            (* SubIndex 1:  1st mapped object             *)
+    dwData_i       := 16#20300608,  (* Mapping:     Index=2030, Sub=01, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1OutByte0'             *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1A00,      (* Index 1A00:  TPDO1 mapping parameter       *)
+    bSubIndex_i    := 7,            (* SubIndex 1:  1st mapped object             *)
+    dwData_i       := 16#20300708,  (* Mapping:     Index=2030, Sub=01, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
+
+FB_WriteLocalODEntry (              (* set mapping for 'CAN1InByte1'              *)
+    usiNetNumber_i := NETNUMBER,
+    wIndex_i       := 16#1A00,      (* Index 1600:  RPDO1 mapping parameter       *)
+    bSubIndex_i    := 8,            (* SubIndex 2:  2nd mapped object             *)
+    dwData_i       := 16#20300808,  (* Mapping:     Index=2030, Sub=02, Len=08    *)
+    usiDataType_i  := 4);           (* Sub0 = DWORD = 4Byte                       *)
 
 (*-------------------------------------------------------------------------*)
 (*  Step (4): Enable new mapping by setting number of configured objects   *)
@@ -222,7 +310,7 @@ FB_WriteLocalODEntry (
     usiNetNumber_i := NETNUMBER,
     wIndex_i       := 16#1A00,      (* Index 1A00:  TPDO1 mapping parameter       *)
     bSubIndex_i    := 0,            (* SubIndex 0:  number of mapped objects      *)
-    dwData_i       := 2,            (* 2 data objects (Sub1+Sub2) are valid       *)
+    dwData_i       := 8,            (* 2 data objects (Sub1+Sub2) are valid       *)
     usiDataType_i  := 1);           (* Sub0 = BYTE = 1Byte                        *)
 
 
